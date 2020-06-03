@@ -19,3 +19,7 @@ System Requirements :
 5. wtforms
 
 	command : pip install wtforms
+
+6. pymysql
+		
+	command : pip install pymysql
