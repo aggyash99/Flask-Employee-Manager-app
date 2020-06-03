@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" >
+        <form method="POST" action="" >
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" >
+                <div class = "form-group" >
+                    {{ form.string.label(class = "form-control-label") }}
+                    {% if form.string.errors %}
+                        {{ form.string(class = "form-control form-control-lg is-invalid") }}
+                        <div class = "invalid-feedback">
+                            {% for error in form.string.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.string(class = "form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class = "form-group" >
+                {{ form.submit(class= "btn btn-outline-info" ) }}
+            </div>
+        </form>
+    </div>
+    <article class="media content-section">
+      <div class="media-body article-metadata">
+          <a class="mr-4" >Name </a>
+          <a class="m-4">Designation</a>
+          <a class="m-4" >Address</a>
+          <a class="m-4">Phone</a>
+      </div>
+    </article>
+    {% for d in datas %}
+    <article class="media content-section">
+        <div class="media-body article-metadata">
+            <a class="mr-4" >{{ d.name }}</a>
+            <a class="m-4">{{ d.designation }}</a>
+            <a class="m-4" >{{ d.address }} </a>
+            <a class="m-4">{{ d.phone }}</a>
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        </div>
+      </article>
+      <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Delete Employee Data ?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <form action="{{ url_for('delete_emp',emp_id = d.id) }}" method="POST">
+                <input class="btn btn-danger " type="submit" value="Delete">
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}
