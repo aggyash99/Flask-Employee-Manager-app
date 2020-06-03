@@ -1,0 +1,21 @@
+System Requirements :
+
+1. Python 2.6 or above :
+	
+	command : pip install python
+
+2. flask
+	
+	command : pip install flask
+
+3. SQLAlchemy
+ 
+	command : pip install flask-sqlalchemy
+
+4. flask_wtf
+
+	command : pip install flask-wtf
+
+5. wtforms
+
+	command : pip install wtforms
