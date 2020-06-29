@@ -1,5 +1,5 @@
-# Flask-Web-App
-My attempt for scientia internship task : Python Coding Challenge (1)
+# Flask-Employee-data-Manager-app
+A basic web app developed on flask web framework based on python with Bootstrap CDN implimentation to provide responsiveness to different screen sizes.
 
 
        
